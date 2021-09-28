@@ -42,20 +42,20 @@ while True:
     # calculate fps
     fps = round(1/deltaTimeAverage, 1) # frame persecond will be calculated using the lowpass filtered change of time
     cv2.rectangle(combinedFrame, (0,0), (150, 40), (0,0,0), -1)
-    cv2.putText(combinedFrame, str(fps)+" FPS", (0, 25), font, 0.75, (255, 255, 255))
+    cv2.putText(combinedFrame, str(fps)+" FPS", (10, 25), font, 0.75, (255, 255, 255))
     cv2.imshow("Laptop Camera and Webcam Camera", combinedFrame)
     # print(f"Reading Time: {deltaTimeAverage} seconds")
   except:
-    print("Frame from CameraStream not available: Trying to reconnect")
+    print("CameraStream not available: Trying to reconnect")
     
   # Option to exit the program gracefully
   if cv2.waitKey(1) == ord('q'):
     # release camera
     cam1.stopStreamThread()
-    cam1.capture.release()
+    cam1.release()
     
     cam2.stopStreamThread()
-    cam2.capture.release()
+    cam2.release()
     cv2.destroyAllWindows()
     exit(1) # killing all threads
     break
