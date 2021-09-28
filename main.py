@@ -58,5 +58,6 @@ while True:
     cam2.release()
     cv2.destroyAllWindows()
     exit(1) # killing all threads
-    break
+    breakpython --version
+    
     

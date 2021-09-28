@@ -13,7 +13,7 @@ class CameraStream:
     self._threadStarted = True
     self._thread = Thread(target=self._update, args=()) # launched the thread that will continuously collects frame
     self._readLock = Lock()
-    # self.thread.daemon = True # kills the thread when the program is terminated
+    self._thread.daemon = True # kills the thread when the program is terminated
     self._thread.start() # start thread during initialization
 
   # private method that only used within the class
